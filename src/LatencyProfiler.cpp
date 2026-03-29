@@ -2,7 +2,6 @@
 #include "LatencyProfiler.hpp"
 #include <fstream>
 #include <stdexcept>
-#include <unordered_map>
 
 void LatencyProfiler::recordEntry(uint64_t orderId, TimePoint t) {
     pending_[orderId] = t;

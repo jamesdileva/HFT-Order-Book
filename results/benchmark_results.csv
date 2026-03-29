@@ -1,0 +1,12 @@
+metric,value
+total_orders,100000
+total_fills,100153
+total_volume,2518046
+fill_rate,1.00153
+orders_per_sec,363613
+mean_latency_ns,449784
+median_latency_ns,600
+p99_latency_ns,8.8612e+06
+min_latency_ns,300
+max_latency_ns,1.13122e+08
+elapsed_seconds,0.275017

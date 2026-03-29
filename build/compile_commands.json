@@ -1,0 +1,38 @@
+[
+{
+  "directory": "C:/Users/j/HFT-Order-Book/build",
+  "command": "C:\\msys64\\mingw64\\bin\\g++.exe  @CMakeFiles/hft.dir/includes_CXX.rsp -g -std=gnu++20 -o CMakeFiles\\hft.dir\\src\\main.cpp.obj -c C:\\Users\\j\\HFT-Order-Book\\src\\main.cpp",
+  "file": "C:/Users/j/HFT-Order-Book/src/main.cpp",
+  "output": "CMakeFiles/hft.dir/src/main.cpp.obj"
+},
+{
+  "directory": "C:/Users/j/HFT-Order-Book/build",
+  "command": "C:\\msys64\\mingw64\\bin\\g++.exe  @CMakeFiles/hft.dir/includes_CXX.rsp -g -std=gnu++20 -o CMakeFiles\\hft.dir\\src\\Benchmark.cpp.obj -c C:\\Users\\j\\HFT-Order-Book\\src\\Benchmark.cpp",
+  "file": "C:/Users/j/HFT-Order-Book/src/Benchmark.cpp",
+  "output": "CMakeFiles/hft.dir/src/Benchmark.cpp.obj"
+},
+{
+  "directory": "C:/Users/j/HFT-Order-Book/build",
+  "command": "C:\\msys64\\mingw64\\bin\\g++.exe  @CMakeFiles/hft.dir/includes_CXX.rsp -g -std=gnu++20 -o CMakeFiles\\hft.dir\\src\\MatchingEngine.cpp.obj -c C:\\Users\\j\\HFT-Order-Book\\src\\MatchingEngine.cpp",
+  "file": "C:/Users/j/HFT-Order-Book/src/MatchingEngine.cpp",
+  "output": "CMakeFiles/hft.dir/src/MatchingEngine.cpp.obj"
+},
+{
+  "directory": "C:/Users/j/HFT-Order-Book/build",
+  "command": "C:\\msys64\\mingw64\\bin\\g++.exe  @CMakeFiles/hft.dir/includes_CXX.rsp -g -std=gnu++20 -o CMakeFiles\\hft.dir\\src\\OrderBook.cpp.obj -c C:\\Users\\j\\HFT-Order-Book\\src\\OrderBook.cpp",
+  "file": "C:/Users/j/HFT-Order-Book/src/OrderBook.cpp",
+  "output": "CMakeFiles/hft.dir/src/OrderBook.cpp.obj"
+},
+{
+  "directory": "C:/Users/j/HFT-Order-Book/build",
+  "command": "C:\\msys64\\mingw64\\bin\\g++.exe  @CMakeFiles/hft.dir/includes_CXX.rsp -g -std=gnu++20 -o CMakeFiles\\hft.dir\\src\\OrderGenerator.cpp.obj -c C:\\Users\\j\\HFT-Order-Book\\src\\OrderGenerator.cpp",
+  "file": "C:/Users/j/HFT-Order-Book/src/OrderGenerator.cpp",
+  "output": "CMakeFiles/hft.dir/src/OrderGenerator.cpp.obj"
+},
+{
+  "directory": "C:/Users/j/HFT-Order-Book/build",
+  "command": "C:\\msys64\\mingw64\\bin\\g++.exe  @CMakeFiles/hft.dir/includes_CXX.rsp -g -std=gnu++20 -o CMakeFiles\\hft.dir\\src\\LatencyProfiler.cpp.obj -c C:\\Users\\j\\HFT-Order-Book\\src\\LatencyProfiler.cpp",
+  "file": "C:/Users/j/HFT-Order-Book/src/LatencyProfiler.cpp",
+  "output": "CMakeFiles/hft.dir/src/LatencyProfiler.cpp.obj"
+}
+]
