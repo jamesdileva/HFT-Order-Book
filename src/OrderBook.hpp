@@ -1,56 +1,59 @@
-// OrderBook.hpp
+// OrderGenerator.hpp
 #pragma once
 
-#include <map>
-#include <deque>
-#include <unordered_map>
 #include <cstdint>
-#include <optional>
+#include <random>
+#include <functional>
 #include "Order.hpp"
+#include "ObjectPool.hpp"
 
-// ── Price level ───────────────────────────────────────────────────────────────
-struct PriceLevel {
-    double               price;
-    std::deque<Order*>   orders;   // FIFO queue of orders at this price
-    uint32_t             totalQty; // sum of remaining quantity at this level
-
-    void add(Order* o)    { orders.push_back(o); totalQty += o->remaining(); }
-    void remove(Order* o) { totalQty -= o->remaining(); }
+// ── Generator config ──────────────────────────────────────────────────────────
+struct GeneratorConfig {
+    double   midPrice       = 100.0;  // starting reference price
+    double   tickSize       = 0.01;   // minimum price increment
+    double   spread         = 0.10;   // initial bid/ask spread
+    double   priceVolatility= 0.05;   // how much mid price drifts per order
+    uint32_t minQty         = 1;
+    uint32_t maxQty         = 100;
+    double   marketOrderPct = 0.20;   // 20% of orders are market orders
+    double   cancelPct      = 0.10;   // 10% chance a resting order gets cancelled
 };
 
-// ── Order Book ────────────────────────────────────────────────────────────────
-class OrderBook {
+// ── Order Generator ───────────────────────────────────────────────────────────
+class OrderGenerator {
 public:
-    // Add a resting limit order to the book
-    void addOrder(Order* order);
+    explicit OrderGenerator(GeneratorConfig cfg = {},
+                            uint64_t seed = 42);
 
-    // Cancel an order by ID — returns false if not found
-    bool cancelOrder(uint64_t orderId);
+    // Random trader — noise, no strategy
+    Order* nextRandom();
 
-    // Best bid (highest buy price) — empty if no bids
-    std::optional<double> bestBid() const;
+    // Market maker — always quotes both sides of the spread
+    // Returns two orders: a bid and an ask
+    std::pair<Order*, Order*> nextMarketMakerQuote();
 
-    // Best ask (lowest sell price) — empty if no asks
-    std::optional<double> bestAsk() const;
+    // Current simulated mid price
+    double midPrice() const { return cfg_.midPrice; }
 
-    // Spread between best ask and best bid
-    std::optional<double> spread() const;
-
-    // Access internals for the matching engine
-    std::map<double, PriceLevel, std::greater<double>>& bids() { return bids_; }
-    std::map<double, PriceLevel>&                       asks() { return asks_; }
-
-    // Diagnostics
-    void printBook(int levels = 5) const;
-    std::size_t orderCount() const { return index_.size(); }
+    // Pool access so the engine can release orders back
+    ObjectPool<Order>& pool() { return pool_; }
 
 private:
-    // Bids: highest price first (std::greater)
-    std::map<double, PriceLevel, std::greater<double>> bids_;
+    Order* makeOrder(OrderSide side,
+                     OrderType type,
+                     double    price,
+                     uint32_t  qty);
 
-    // Asks: lowest price first (default std::less)
-    std::map<double, PriceLevel>                       asks_;
+    double roundToTick(double price) const;
 
-    // Fast order lookup by ID for cancellations
-    std::unordered_map<uint64_t, Order*> index_;
+    GeneratorConfig    cfg_;
+    uint64_t           nextId_ = 1;
+    ObjectPool<Order>  pool_;
+
+    // Random number generation
+    std::mt19937_64                        rng_;
+    std::uniform_real_distribution<double> sideDist_{0.0, 1.0};
+    std::uniform_real_distribution<double> typeDist_{0.0, 1.0};
+    std::uniform_int_distribution<uint32_t> qtyDist_;
+    std::normal_distribution<double>       priceDrift_{0.0, 1.0};
 };
