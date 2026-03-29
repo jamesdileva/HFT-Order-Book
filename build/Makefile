@@ -152,6 +152,30 @@ src/Benchmark.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\hft.dir\build.make CMakeFiles/hft.dir/src/Benchmark.cpp.s
 .PHONY : src/Benchmark.cpp.s
 
+src/GUI.obj: src/GUI.cpp.obj
+.PHONY : src/GUI.obj
+
+# target to build an object file
+src/GUI.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\hft.dir\build.make CMakeFiles/hft.dir/src/GUI.cpp.obj
+.PHONY : src/GUI.cpp.obj
+
+src/GUI.i: src/GUI.cpp.i
+.PHONY : src/GUI.i
+
+# target to preprocess a source file
+src/GUI.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\hft.dir\build.make CMakeFiles/hft.dir/src/GUI.cpp.i
+.PHONY : src/GUI.cpp.i
+
+src/GUI.s: src/GUI.cpp.s
+.PHONY : src/GUI.s
+
+# target to generate assembly for a file
+src/GUI.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\hft.dir\build.make CMakeFiles/hft.dir/src/GUI.cpp.s
+.PHONY : src/GUI.cpp.s
+
 src/LatencyProfiler.obj: src/LatencyProfiler.cpp.obj
 .PHONY : src/LatencyProfiler.obj
 
@@ -248,6 +272,150 @@ src/OrderGenerator.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\hft.dir\build.make CMakeFiles/hft.dir/src/OrderGenerator.cpp.s
 .PHONY : src/OrderGenerator.cpp.s
 
+src/imgui.obj: src/imgui.cpp.obj
+.PHONY : src/imgui.obj
+
+# target to build an object file
+src/imgui.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\hft.dir\build.make CMakeFiles/hft.dir/src/imgui.cpp.obj
+.PHONY : src/imgui.cpp.obj
+
+src/imgui.i: src/imgui.cpp.i
+.PHONY : src/imgui.i
+
+# target to preprocess a source file
+src/imgui.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\hft.dir\build.make CMakeFiles/hft.dir/src/imgui.cpp.i
+.PHONY : src/imgui.cpp.i
+
+src/imgui.s: src/imgui.cpp.s
+.PHONY : src/imgui.s
+
+# target to generate assembly for a file
+src/imgui.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\hft.dir\build.make CMakeFiles/hft.dir/src/imgui.cpp.s
+.PHONY : src/imgui.cpp.s
+
+src/imgui_draw.obj: src/imgui_draw.cpp.obj
+.PHONY : src/imgui_draw.obj
+
+# target to build an object file
+src/imgui_draw.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\hft.dir\build.make CMakeFiles/hft.dir/src/imgui_draw.cpp.obj
+.PHONY : src/imgui_draw.cpp.obj
+
+src/imgui_draw.i: src/imgui_draw.cpp.i
+.PHONY : src/imgui_draw.i
+
+# target to preprocess a source file
+src/imgui_draw.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\hft.dir\build.make CMakeFiles/hft.dir/src/imgui_draw.cpp.i
+.PHONY : src/imgui_draw.cpp.i
+
+src/imgui_draw.s: src/imgui_draw.cpp.s
+.PHONY : src/imgui_draw.s
+
+# target to generate assembly for a file
+src/imgui_draw.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\hft.dir\build.make CMakeFiles/hft.dir/src/imgui_draw.cpp.s
+.PHONY : src/imgui_draw.cpp.s
+
+src/imgui_impl_opengl3.obj: src/imgui_impl_opengl3.cpp.obj
+.PHONY : src/imgui_impl_opengl3.obj
+
+# target to build an object file
+src/imgui_impl_opengl3.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\hft.dir\build.make CMakeFiles/hft.dir/src/imgui_impl_opengl3.cpp.obj
+.PHONY : src/imgui_impl_opengl3.cpp.obj
+
+src/imgui_impl_opengl3.i: src/imgui_impl_opengl3.cpp.i
+.PHONY : src/imgui_impl_opengl3.i
+
+# target to preprocess a source file
+src/imgui_impl_opengl3.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\hft.dir\build.make CMakeFiles/hft.dir/src/imgui_impl_opengl3.cpp.i
+.PHONY : src/imgui_impl_opengl3.cpp.i
+
+src/imgui_impl_opengl3.s: src/imgui_impl_opengl3.cpp.s
+.PHONY : src/imgui_impl_opengl3.s
+
+# target to generate assembly for a file
+src/imgui_impl_opengl3.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\hft.dir\build.make CMakeFiles/hft.dir/src/imgui_impl_opengl3.cpp.s
+.PHONY : src/imgui_impl_opengl3.cpp.s
+
+src/imgui_impl_sdl2.obj: src/imgui_impl_sdl2.cpp.obj
+.PHONY : src/imgui_impl_sdl2.obj
+
+# target to build an object file
+src/imgui_impl_sdl2.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\hft.dir\build.make CMakeFiles/hft.dir/src/imgui_impl_sdl2.cpp.obj
+.PHONY : src/imgui_impl_sdl2.cpp.obj
+
+src/imgui_impl_sdl2.i: src/imgui_impl_sdl2.cpp.i
+.PHONY : src/imgui_impl_sdl2.i
+
+# target to preprocess a source file
+src/imgui_impl_sdl2.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\hft.dir\build.make CMakeFiles/hft.dir/src/imgui_impl_sdl2.cpp.i
+.PHONY : src/imgui_impl_sdl2.cpp.i
+
+src/imgui_impl_sdl2.s: src/imgui_impl_sdl2.cpp.s
+.PHONY : src/imgui_impl_sdl2.s
+
+# target to generate assembly for a file
+src/imgui_impl_sdl2.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\hft.dir\build.make CMakeFiles/hft.dir/src/imgui_impl_sdl2.cpp.s
+.PHONY : src/imgui_impl_sdl2.cpp.s
+
+src/imgui_tables.obj: src/imgui_tables.cpp.obj
+.PHONY : src/imgui_tables.obj
+
+# target to build an object file
+src/imgui_tables.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\hft.dir\build.make CMakeFiles/hft.dir/src/imgui_tables.cpp.obj
+.PHONY : src/imgui_tables.cpp.obj
+
+src/imgui_tables.i: src/imgui_tables.cpp.i
+.PHONY : src/imgui_tables.i
+
+# target to preprocess a source file
+src/imgui_tables.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\hft.dir\build.make CMakeFiles/hft.dir/src/imgui_tables.cpp.i
+.PHONY : src/imgui_tables.cpp.i
+
+src/imgui_tables.s: src/imgui_tables.cpp.s
+.PHONY : src/imgui_tables.s
+
+# target to generate assembly for a file
+src/imgui_tables.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\hft.dir\build.make CMakeFiles/hft.dir/src/imgui_tables.cpp.s
+.PHONY : src/imgui_tables.cpp.s
+
+src/imgui_widgets.obj: src/imgui_widgets.cpp.obj
+.PHONY : src/imgui_widgets.obj
+
+# target to build an object file
+src/imgui_widgets.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\hft.dir\build.make CMakeFiles/hft.dir/src/imgui_widgets.cpp.obj
+.PHONY : src/imgui_widgets.cpp.obj
+
+src/imgui_widgets.i: src/imgui_widgets.cpp.i
+.PHONY : src/imgui_widgets.i
+
+# target to preprocess a source file
+src/imgui_widgets.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\hft.dir\build.make CMakeFiles/hft.dir/src/imgui_widgets.cpp.i
+.PHONY : src/imgui_widgets.cpp.i
+
+src/imgui_widgets.s: src/imgui_widgets.cpp.s
+.PHONY : src/imgui_widgets.s
+
+# target to generate assembly for a file
+src/imgui_widgets.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\hft.dir\build.make CMakeFiles/hft.dir/src/imgui_widgets.cpp.s
+.PHONY : src/imgui_widgets.cpp.s
+
 src/main.obj: src/main.cpp.obj
 .PHONY : src/main.obj
 
@@ -284,6 +452,9 @@ help:
 	@echo ... src/Benchmark.obj
 	@echo ... src/Benchmark.i
 	@echo ... src/Benchmark.s
+	@echo ... src/GUI.obj
+	@echo ... src/GUI.i
+	@echo ... src/GUI.s
 	@echo ... src/LatencyProfiler.obj
 	@echo ... src/LatencyProfiler.i
 	@echo ... src/LatencyProfiler.s
@@ -296,6 +467,24 @@ help:
 	@echo ... src/OrderGenerator.obj
 	@echo ... src/OrderGenerator.i
 	@echo ... src/OrderGenerator.s
+	@echo ... src/imgui.obj
+	@echo ... src/imgui.i
+	@echo ... src/imgui.s
+	@echo ... src/imgui_draw.obj
+	@echo ... src/imgui_draw.i
+	@echo ... src/imgui_draw.s
+	@echo ... src/imgui_impl_opengl3.obj
+	@echo ... src/imgui_impl_opengl3.i
+	@echo ... src/imgui_impl_opengl3.s
+	@echo ... src/imgui_impl_sdl2.obj
+	@echo ... src/imgui_impl_sdl2.i
+	@echo ... src/imgui_impl_sdl2.s
+	@echo ... src/imgui_tables.obj
+	@echo ... src/imgui_tables.i
+	@echo ... src/imgui_tables.s
+	@echo ... src/imgui_widgets.obj
+	@echo ... src/imgui_widgets.i
+	@echo ... src/imgui_widgets.s
 	@echo ... src/main.obj
 	@echo ... src/main.i
 	@echo ... src/main.s
