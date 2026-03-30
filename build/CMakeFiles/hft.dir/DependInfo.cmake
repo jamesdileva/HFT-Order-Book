@@ -10,6 +10,7 @@ set(CMAKE_DEPENDS_LANGUAGES
 set(CMAKE_DEPENDS_DEPENDENCY_FILES
   "C:/Users/j/HFT-Order-Book/src/Benchmark.cpp" "CMakeFiles/hft.dir/src/Benchmark.cpp.obj" "gcc" "CMakeFiles/hft.dir/src/Benchmark.cpp.obj.d"
   "C:/Users/j/HFT-Order-Book/src/GUI.cpp" "CMakeFiles/hft.dir/src/GUI.cpp.obj" "gcc" "CMakeFiles/hft.dir/src/GUI.cpp.obj.d"
+  "C:/Users/j/HFT-Order-Book/src/GameManager.cpp" "CMakeFiles/hft.dir/src/GameManager.cpp.obj" "gcc" "CMakeFiles/hft.dir/src/GameManager.cpp.obj.d"
   "C:/Users/j/HFT-Order-Book/src/LatencyProfiler.cpp" "CMakeFiles/hft.dir/src/LatencyProfiler.cpp.obj" "gcc" "CMakeFiles/hft.dir/src/LatencyProfiler.cpp.obj.d"
   "C:/Users/j/HFT-Order-Book/src/MatchingEngine.cpp" "CMakeFiles/hft.dir/src/MatchingEngine.cpp.obj" "gcc" "CMakeFiles/hft.dir/src/MatchingEngine.cpp.obj.d"
   "C:/Users/j/HFT-Order-Book/src/OrderBook.cpp" "CMakeFiles/hft.dir/src/OrderBook.cpp.obj" "gcc" "CMakeFiles/hft.dir/src/OrderBook.cpp.obj.d"

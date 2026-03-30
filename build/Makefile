@@ -176,6 +176,30 @@ src/GUI.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\hft.dir\build.make CMakeFiles/hft.dir/src/GUI.cpp.s
 .PHONY : src/GUI.cpp.s
 
+src/GameManager.obj: src/GameManager.cpp.obj
+.PHONY : src/GameManager.obj
+
+# target to build an object file
+src/GameManager.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\hft.dir\build.make CMakeFiles/hft.dir/src/GameManager.cpp.obj
+.PHONY : src/GameManager.cpp.obj
+
+src/GameManager.i: src/GameManager.cpp.i
+.PHONY : src/GameManager.i
+
+# target to preprocess a source file
+src/GameManager.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\hft.dir\build.make CMakeFiles/hft.dir/src/GameManager.cpp.i
+.PHONY : src/GameManager.cpp.i
+
+src/GameManager.s: src/GameManager.cpp.s
+.PHONY : src/GameManager.s
+
+# target to generate assembly for a file
+src/GameManager.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\hft.dir\build.make CMakeFiles/hft.dir/src/GameManager.cpp.s
+.PHONY : src/GameManager.cpp.s
+
 src/LatencyProfiler.obj: src/LatencyProfiler.cpp.obj
 .PHONY : src/LatencyProfiler.obj
 
@@ -455,6 +479,9 @@ help:
 	@echo ... src/GUI.obj
 	@echo ... src/GUI.i
 	@echo ... src/GUI.s
+	@echo ... src/GameManager.obj
+	@echo ... src/GameManager.i
+	@echo ... src/GameManager.s
 	@echo ... src/LatencyProfiler.obj
 	@echo ... src/LatencyProfiler.i
 	@echo ... src/LatencyProfiler.s

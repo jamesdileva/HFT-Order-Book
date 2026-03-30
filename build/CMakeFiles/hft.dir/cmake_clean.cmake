@@ -3,6 +3,8 @@ file(REMOVE_RECURSE
   "CMakeFiles/hft.dir/src/Benchmark.cpp.obj.d"
   "CMakeFiles/hft.dir/src/GUI.cpp.obj"
   "CMakeFiles/hft.dir/src/GUI.cpp.obj.d"
+  "CMakeFiles/hft.dir/src/GameManager.cpp.obj"
+  "CMakeFiles/hft.dir/src/GameManager.cpp.obj.d"
   "CMakeFiles/hft.dir/src/LatencyProfiler.cpp.obj"
   "CMakeFiles/hft.dir/src/LatencyProfiler.cpp.obj.d"
   "CMakeFiles/hft.dir/src/MatchingEngine.cpp.obj"
