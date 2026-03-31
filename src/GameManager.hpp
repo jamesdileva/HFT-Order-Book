@@ -36,21 +36,31 @@ struct StockState {
     }
 };
 
+// Add this enum before GamePhase
+enum class AppMode {
+    Benchmark,
+    Game
+};
+
 // ── Game phase ────────────────────────────────────────────────────────────────
 enum class GamePhase {
-    StockPicker,    // player is choosing a stock
-    Trading,        // simulation running, player is active
-    SessionEnd,     // session over — show results
-    Leaderboard     // show top scores
+    MainMenu,
+    StockPicker,
+    Trading,
+    TradingReady,   // paused, waiting for player to press Start
+    SessionEnd,
+    Leaderboard,
+    Benchmark
 };
 
 // ── Full shared game state — read by GUI thread, written by sim thread ─────────
 struct GameState {
     std::mutex mtx;
-
+    AppMode appMode = AppMode::Game;
     // Game phase
-    GamePhase phase = GamePhase::StockPicker;
-
+    GamePhase phase = GamePhase::MainMenu;
+    // Staging deque — sim thread writes here lock-free
+    //std::deque<FillEntry> pendingFills;
     // All six stocks
     std::vector<StockState> stocks;
 
@@ -72,7 +82,9 @@ struct GameState {
     double spread = 0.0;
 
     // Simulation progress
-    uint64_t totalOrders     = 200000;
+    uint64_t benchmarkOrders = 500000;
+    uint64_t totalOrders     = 100000;
+    std::atomic<int> speedSetting { 1 };
     uint64_t processedOrders = 0;
 
     // Performance stats
@@ -85,6 +97,23 @@ struct GameState {
     std::atomic<bool> resetRequested  { false };
     std::atomic<bool> paused          { false };
     std::atomic<bool> simRunning      { false };
+
+    // Benchmark mode stats — mirrors original SimState
+    double   fillRate       = 0.0;
+    uint64_t totalFills     = 0;
+    double   meanLatNs      = 0.0;
+    double   minLatNs       = 0.0;
+    double   maxLatNs       = 0.0;
+    std::vector<HistoBucket> histogram;
+    std::deque<FillEntry>    recentFills;
+    static constexpr std::size_t MAX_FILLS = 64;
+
+void pushFill(bool isBuy, double price,
+              uint32_t qty, double latUs) {
+    recentFills.push_front({ isBuy, price, qty, latUs });
+    if (recentFills.size() > MAX_FILLS)
+        recentFills.pop_back();
+}
 
     // Player action queue — GUI pushes, sim thread consumes
     struct PlayerAction {
@@ -116,10 +145,13 @@ public:
     void selectStock   (int idx);
     void requestReset  ();
     void submitToLeaderboard(const std::string& name);
+    void selectMode(AppMode mode);
+
 
 private:
     void simLoop();
-
+    void benchmarkLoop();  
+    void gameLoop();        
     void initStocks();
 
     void updateRegime(StockState& s, std::mt19937_64& rng);

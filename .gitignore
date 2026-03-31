@@ -1,0 +1,23 @@
+# Build output
+build/
+*.exe
+*.o
+*.obj
+*.a
+*.lib
+*.pdb
+*.ilk
+*.exp
+
+# CMake generated
+CMakeCache.txt
+CMakeFiles/
+cmake_install.cmake
+Makefile
+
+# Results — optional
+# results/*.csv
+
+# IDE
+.vscode/
+*.user
