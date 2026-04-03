@@ -143,7 +143,7 @@ void GameManager::simLoop() {
         gameLoop();
 }
 
-// ── Benchmark loop — max speed, original behavior ─────────────────────────────
+// ── Benchmark loop — max speed ─────────────────────────────
 void GameManager::benchmarkLoop() {
     std::mt19937_64 rng(42);
     std::vector<double> latSamples;
@@ -266,7 +266,8 @@ MatchingEngine engine([&](const Fill& fill) {
 
     state_.simRunning.store(false);
 }
-uint64_t fillCount = 0;
+
+
 // ── Game loop — throttled, player interactive ─────────────────────────────────
 void GameManager::gameLoop() {
     // Wait for stock selection and player to press Start
@@ -303,11 +304,12 @@ void GameManager::gameLoop() {
     OrderGenerator generator(gcfg);
 
 uint64_t fillCount = 0;
+std::vector<FillEntry> fillBuffer;
+fillBuffer.reserve(100);
 MatchingEngine engine([&](const Fill& fill) {
-    auto now = std::chrono::steady_clock::now();
+    auto now = std::chrono::high_resolution_clock::now();
     double latNs = std::chrono::duration_cast<std::chrono::nanoseconds>(
-        now.time_since_epoch() -
-        fill.timestamp.time_since_epoch()).count();
+        now - fill.timestamp).count();
     if (latNs > 0 && latNs < 1e9) {
         latSamples.push_back(latNs);
         if (++fillCount % 10 == 0) {
@@ -360,7 +362,7 @@ MatchingEngine engine([&](const Fill& fill) {
         if (i % 100 == 0) {
             int setting = state_.speedSetting.load();
             // ms delay per 100 orders at each speed setting
-            static const int delays[] = { 40, 20, 8, 4, 1 };
+            static const int delays[] = { 80, 40, 8, 4, 1 };
             int delayMs = delays[std::clamp(setting, 0, 4)];
             std::this_thread::sleep_for(
                 std::chrono::milliseconds(delayMs));
@@ -440,10 +442,15 @@ MatchingEngine engine([&](const Fill& fill) {
                 now - wallStart).count();
 
             std::lock_guard<std::mutex> lock(state_.mtx);
-
+            for (auto& f : fillBuffer) {
+                state_.recentFills.push_front(f);
+                if (state_.recentFills.size() > 64)
+                    state_.recentFills.pop_back();
+            }
+            fillBuffer.clear();       
             state_.processedOrders = i;
             state_.ordersPerSec    = elapsed > 0 ? i / elapsed : 0;
-
+                  
             if (latSamples.size() > 10) {
                 auto sorted = latSamples;
                 std::sort(sorted.begin(), sorted.end());
@@ -503,10 +510,10 @@ void GameManager::updatePrice(StockState& s,
 
     double driftMod = 1.0;
     switch (s.currentRegime) {
-        case Regime::Momentum:      driftMod = 2.0;  break;
+        case Regime::Momentum:      driftMod = 4.0;  break;
         case Regime::MeanReversion: driftMod = 0.0;  break;
-        case Regime::Volatile:      driftMod = 1.0;  break;
-        case Regime::Quiet:         driftMod = 0.3;  break;
+        case Regime::Volatile:      driftMod = 1.5;  break;
+        case Regime::Quiet:         driftMod = 0.1;  break;
     }
 
     double totalMove = shock

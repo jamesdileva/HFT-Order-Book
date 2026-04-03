@@ -82,7 +82,7 @@ struct GameState {
     double spread = 0.0;
 
     // Simulation progress
-    uint64_t benchmarkOrders = 500000;
+    uint64_t benchmarkOrders = 2000000;
     uint64_t totalOrders     = 100000;
     std::atomic<int> speedSetting { 1 };
     uint64_t processedOrders = 0;

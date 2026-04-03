@@ -165,7 +165,7 @@ void GUI::drawMainMenu(GameManager& gm, GameState& gs) {
     ImGui::SetCursorPosY(H - 36.0f);
     ImGui::Separator();
     ImGui::TextColored(COL_MUTED,
-        "  363K orders/sec  |  600ns median latency  |  "
+        "  1.8M orders/sec  |  100ns median latency  |  "
         "price-time priority matching  |  memory pool allocation");
 }
 
@@ -989,6 +989,11 @@ void GUI::drawPnlAndStats(GameState& gs) {
 void GUI::drawFillFeed(GameState& gs) {
     ImGui::TextColored(COL_MUTED, "RECENT FILLS");
     ImGui::Separator();
+
+    // Debug line — remove after confirming
+    ImGui::TextColored(COL_AMBER, "fills: %zu  buf: debug",
+        gs.recentFills.size());
+        
     ImGui::TextColored(COL_MUTED,
         "%-4s %8s %5s %6s", "SIDE", "PRICE", "QTY", "LAT");
     ImGui::Separator();

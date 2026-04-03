@@ -1,4 +1,3 @@
-// GUI.hpp
 #pragma once
 
 #include "GameManager.hpp"

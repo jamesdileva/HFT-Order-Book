@@ -33,7 +33,7 @@ set(SOURCES
 add_executable(hft ${SOURCES})
 
 if(WIN32)
-    set_target_properties(hft PROPERTIES WIN32_EXECUTABLE TRUE)
+   set_target_properties(hft PROPERTIES WIN32_EXECUTABLE TRUE)
 endif()
 
 target_include_directories(hft PRIVATE
